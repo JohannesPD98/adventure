@@ -2,9 +2,9 @@
 #define __ITEM_H
 
 typedef struct inv_item {
-    char *name;
+    char* name;
     unsigned int quantity;
-    unsigned int data;
+    struct inv_item* next;
 } Item;
 
 #endif /*__ITEM_H*/
