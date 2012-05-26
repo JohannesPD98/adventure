@@ -1,6 +1,6 @@
 #include "item_actions.h"
 
-#define ITEM_COUNT 1
+#define ITEM_COUNT 2
 
 struct object {
     const char* name;
@@ -8,7 +8,8 @@ struct object {
 };
 
 static struct object item_index[ITEM_COUNT] = {
-    {"NOTHING", do_nothing}
+    {"NOTHING", do_nothing},
+    {"SOMETHING", do_something}
 };
 
 int use_item(unsigned int item)

@@ -9,6 +9,7 @@ typedef struct inv_item {
 
 /*Begin item ids*/
 #define NOTHING 0
+#define SOMETHING 1
 /*End item ids  */
 
 int use_item(unsigned int);
