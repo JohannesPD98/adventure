@@ -1,0 +1,1 @@
+int mapa(void);
