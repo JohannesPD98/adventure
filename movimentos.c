@@ -3,26 +3,53 @@
 
 int mov1() {
 	int comando;
-		while (1==1) {
-			printf("Você está na frente da caverna do Dragão, com apenas um mapa.\nO que você faz?\n");
-			printf("(0)Sair do Jogo\n(1)Mostrar Mapa\n(2)Entrar na caverna\n>");
-			scanf("%d", &comando);
-				switch (comando) {
-					case 0:
-						return 13;
-					case 1:
-						mapa();
-						break;
-					case 2:
-						return 1;
-					default :
-						continue;
-				}
-		}
+	char msg[500] = {"Você está na frente da caverna do Dragão, com apenas um mapa.\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(F)Entrar na caverna\n>"}
+			return sel(msg);
 }
+
 int mov2() {
-			printf("Ao entrar na caverna, você é cumprimentado por um mercador, que oferece");
-			printf(" equipamentos para sua aventura.\nVocê encontra três saídas, uma de cada lado");
-			printf(" e uma a frente, que está barrada por uma rocha do seu tamanho.\n");
-		return 0;
+	char resp = { 
+	char msg[500] = {"Ao entrar na caverna, você é cumprimentado por um mercador, que oferece\n equipamentos para sua aventura. Ao explorar, você encontra três saídas,\n uma de cada lado e uma a frente, que está barrada por uma rocha do seu tamanho.\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(F)Tentar Mover a pedra\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"}
+	while (1) {
+		
+		scanf("%d", &comando);
+		switch (comando) {
+			case 0:
+				return 13;
+			case 1:
+				mapa();
+				break;
+			case 2:
+				return 2;
+			case 3:
+				return 3;
+			case 4:
+				return 4;
+			case 5:
+				return 5;
+			default :
+				printf("Digite um número válido\n");
+				continue;
+		}
 	}
+}
+int merc() {
+	int comando;
+	while (1) {
+		printf("O mercador não tem nada. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(B)Voltar\n>");
+		scanf("%d", &comando);
+		switch (comando) {
+			case 0:
+				return 13;
+			case 1:
+				mapa();
+				break;
+			case 2:
+				return 1;
+			default :
+				printf("Digite um número\n");
+				continue;
+		}
+	}
+}
+		
