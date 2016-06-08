@@ -1,6 +1,11 @@
-char hall1(char at);
-char hall2(char at);
-char hall3(char at, char classe);
-char merc(char at);
-char rooml(char at);
-char roomr(char at);
+#include "adventure.h"
+#ifndef MOVIMENTOS
+#define MOVIMENTOS
+struct personagem hall1(struct personagem adv);
+struct personagem hall2(struct personagem adv);
+struct personagem hall3(struct personagem adv);
+struct personagem hall4(struct personagem adv);
+struct personagem merc(struct personagem adv);
+struct personagem rooml(struct personagem adv);
+struct personagem roomr(struct personagem adv);
+#endif

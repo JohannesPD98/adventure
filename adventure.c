@@ -1,32 +1,28 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "menu.h"
-typedef struct personagem {
-		char classe;
-		char at;
-		int pedra;
-		int lgrind;
-		int rgrind;
-		int gold;
-		char inventario[];
-		} adv;
+#include "adventure.h"
+
 int main(void)	{
 	adv.classe = '0';
 	adv.at = 'A';
+	adv.lgrind = 0;
+	adv.rgrind = 0;
+	adv.gold = 0;
 	printf("Escolha uma classe\n(1)Lutador\n(2) Mago\n");
-	while (classe != '1' && classe != '2') {
+	while (adv.classe != '1' && adv.classe != '2') {
 		scanf(" %c", &adv.classe);
-		if (classe == '1') {
+		if (adv.classe == '1') {
 			printf("Você escolheu Lutador.\n");
 		}
-			else if (classe == '2') { 
+			else if (adv.classe == '2') { 
 					printf("Você escolheu Mago.\n");
 			}
 				else printf("Digite 1 ou 2\n");
-	}	
-	mapa();
-	while (at != 'X') {
-		at = nav(adv.at, adv.classe);
+	}
+	mapa(adv);
+	while (adv.at != 'X') {
+		adv = nav(adv);
 	}
 	return 0;
 }

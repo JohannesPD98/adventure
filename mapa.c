@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "salas.h"
-int mapa(void) {
+#include "adventure.h"
+int mapa(struct personagem adv) {
 	sala1("Final");
 	corredor();
 	entrada();
-	hall();
+	hall(adv);
 	return 0;
 }
 

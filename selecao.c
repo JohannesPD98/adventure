@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "mapa.h"
-
-char sel(char at, char msg[], char cmds[], int comandos) {
+#include "adventure.h"
+struct personagem sel(struct personagem adv, char msg[], char cmds[], int comandos) {
 	char input;
 	int i, can = 0;
 	printf("%s", msg);
@@ -13,22 +13,35 @@ char sel(char at, char msg[], char cmds[], int comandos) {
 	}
 	if (can != 1) {
 		printf("Comando inválido.\n");
-		sel(at, msg, cmds, comandos);
+		sel(adv, msg, cmds, comandos);
 	}
 		else {
 			switch (input) {
-			case 'X':
-				return 'X';
-			case 'M':
-				mapa();
-				return at;
+			case 'E':
+				adv.at = 'B';
+				return adv;
 			case 'F':
-				return at+1;
+				adv.at = 'C';
+				adv.pedra = '0';
+				return adv;
+			case 'D':
+				adv.at = 'D';
+				return adv;
+			case 'X':
+				adv.at = 'X';
+				return adv;
+			case 'M':
+				mapa(adv);
+				return adv;
 			case 'R':
-				return 'R';
+				adv.at = 'R';
+				adv.rgrind++;
+				return adv;
 			case 'L':
-				return 'L';			
+				adv.at = 'L';
+				return adv;
+				adv.lgrind++;			
 			}
 		}
-	return at;
+	return adv;
 }

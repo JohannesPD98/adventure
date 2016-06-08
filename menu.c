@@ -1,37 +1,39 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "movimentos.h"
-int nav( adv.at, char classe) {
-			switch (at) {
+#include "adventure.h"
+
+struct personagem nav(struct personagem adv) {
+			switch (adv.at) {
 				case 'A':
-					at = hall1(at);
+					adv = hall1(adv);
 					break;
 				case 'B':
-					at = hall2(at);
+					adv = hall2(adv);
 					break;
 				case 'C':
-					at = hall3(at, classe);
+					adv = hall3(adv);
 					break;
-				/*case 'D':
-					at = hall4(at);
+				case 'D':
+					adv = hall4(adv);
 					break;
-				case 'E':
-					at = hall5(at);
+				/*case 'E':
+					adv = hall5(adv);
 					break;*/
 				case 'L':
-					at = rooml(at);
+					adv = rooml(adv);
 					break;
 				case 'M':
 					mapa();
 					break;
 				case 'R':
-					at = roomr(at);
+					adv = roomr(adv);
 					break;
 				case 'S':
-					at = merc(at);
+					adv = merc(adv);
 					break;
 				case 'X':
 					break;
 			}			
-	return at;
+	return adv;
 }

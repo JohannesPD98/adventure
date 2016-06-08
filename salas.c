@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "adventure.h"
 void sala1(char sala[5]) {
 	printf("\t\t\t_________________________________\n");
 	printf("\t\t\t|\t\t    \t\t|\n");
@@ -29,8 +30,11 @@ void entrada(void) {
 	printf("\t\t\t      |   \t\t|      \n");
 	printf("\t\t\t _____|_______| |_______|_______\n");
 }
-void hall(void) {
-	printf("\t\t\t|\t\t\t\t|\n");
+void hall(struct personagem adv) {
+	if (adv.pedra != 0) {
+	printf("\t\t\t|\t      * \t\t|\n");
+	}
+		else printf("\t\t\t|\t       *\t\t|\n");
 	printf("________________________|\t\t\t\t|________________________\n");
 	printf("|\t????????\t|\t\t\t\t|\t????????\t|\n");
 	printf("|\t????????\t|\t\t\t\t|\t????????\t|\n");
