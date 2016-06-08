@@ -3,21 +3,33 @@
 #include "movimentos.h"
 int nav(char at) {
 			switch (at) {
-				case 0:
-					at = mov1();
+				case 'A':
+					at = mov1(at);
 					break;
-				case 1:
-					at = mov2();
+				case 'B':
+					at = mov2(at);
 					break;
-				case S:
-					at = merc();
+				/*case 'C':
+					at = mov3(at);
 					break;
-				/*case 3:
-					at = mov3();
+				case 'D':
+					at = mov4(at);
 					break;
-				case 4:
-					at = mov4();
+				case 'E':
+					at = mov5(at);
 					break;*/
+				case 'L':
+					at = rooml(at);
+				case 'M':
+					mapa();
+					break;
+				case 'R':
+					at = roomr(at);
+				case 'S':
+					at = merc(at);
+					break;
+				case 'X':
+					break;
 			}			
 	return at;
 }
