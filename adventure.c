@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "menu.h"
+typedef struct personagem {
+		char classe;
+		int pedra;
+		int lgrind;
+		int rgrind;
+		int gold;
+		char inventario[];
+		}
 int main(void)	{
 	char classe = '0';
 	char at = 'A';
