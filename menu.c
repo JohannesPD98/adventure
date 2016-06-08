@@ -1,30 +1,32 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "movimentos.h"
-int nav(char at) {
+int nav(char at, char classe) {
 			switch (at) {
 				case 'A':
-					at = mov1(at);
+					at = hall1(at);
 					break;
 				case 'B':
-					at = mov2(at);
+					at = hall2(at);
 					break;
-				/*case 'C':
-					at = mov3(at);
+				case 'C':
+					at = hall3(at, classe);
 					break;
-				case 'D':
-					at = mov4(at);
+				/*case 'D':
+					at = hall4(at);
 					break;
 				case 'E':
-					at = mov5(at);
+					at = hall5(at);
 					break;*/
 				case 'L':
 					at = rooml(at);
+					break;
 				case 'M':
 					mapa();
 					break;
 				case 'R':
 					at = roomr(at);
+					break;
 				case 'S':
 					at = merc(at);
 					break;
