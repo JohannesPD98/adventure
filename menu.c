@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "movimentos.h"
-int nav(char at, char classe) {
+int nav( adv.at, char classe) {
 			switch (at) {
 				case 'A':
 					at = hall1(at);

@@ -3,18 +3,19 @@
 #include "menu.h"
 typedef struct personagem {
 		char classe;
+		char at;
 		int pedra;
 		int lgrind;
 		int rgrind;
 		int gold;
 		char inventario[];
-		}
+		} adv;
 int main(void)	{
-	char classe = '0';
-	char at = 'A';
+	adv.classe = '0';
+	adv.at = 'A';
 	printf("Escolha uma classe\n(1)Lutador\n(2) Mago\n");
 	while (classe != '1' && classe != '2') {
-		scanf(" %c", &classe);
+		scanf(" %c", &adv.classe);
 		if (classe == '1') {
 			printf("Você escolheu Lutador.\n");
 		}
@@ -25,7 +26,7 @@ int main(void)	{
 	}	
 	mapa();
 	while (at != 'X') {
-		at = nav(at, classe);
+		at = nav(adv.at, adv.classe);
 	}
 	return 0;
 }
