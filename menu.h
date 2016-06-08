@@ -1,1 +1,1 @@
-int nav(int at);
+int nav(char at, char classe);
