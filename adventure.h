@@ -4,6 +4,7 @@ struct personagem {
 	char classe;
 	char at;
 	int pedra;
+	int dragon;
 	int lgrind;
 	int rgrind;
 	int gold;

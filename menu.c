@@ -11,9 +11,6 @@ struct personagem nav(struct personagem adv) {
 				case 'B':
 					adv = hall2(adv);
 					break;
-				case 'C':
-					adv = hall3(adv);
-					break;
 				case 'D':
 					adv = hall4(adv);
 					break;
@@ -24,7 +21,7 @@ struct personagem nav(struct personagem adv) {
 					adv = rooml(adv);
 					break;
 				case 'M':
-					mapa();
+					mapa(adv);
 					break;
 				case 'R':
 					adv = roomr(adv);

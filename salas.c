@@ -23,15 +23,21 @@ void corredor(void) {
 	printf("\t|_______________|_____________|  |______________|\n");
 
 }
-void entrada(void) {
+void entrada(struct personagem adv) {
 	printf("\t\t\t      |   \t\t|      \n");
-	printf("\t\t\t      |\t    PERIGO  \t|      \n");
-	printf("\t\t\t      |\t    PERIGO  \t|      \n");
+	if (adv.dragon == 1) {
+		printf("\t\t\t      |\t    PERIGO  \t|      \n");
+		printf("\t\t\t      |\t    PERIGO  \t|      \n");
+	}
+	else {
+		printf("\t\t\t      |\t\t    \t|      \n");
+		printf("\t\t\t      |\t\t    \t|      \n");
+	}	
 	printf("\t\t\t      |   \t\t|      \n");
 	printf("\t\t\t _____|_______| |_______|_______\n");
 }
 void hall(struct personagem adv) {
-	if (adv.pedra != 0) {
+	if (adv.pedra == 0) {
 	printf("\t\t\t|\t      * \t\t|\n");
 	}
 		else printf("\t\t\t|\t       *\t\t|\n");

@@ -17,15 +17,19 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 	}
 		else {
 			switch (input) {
+			case 'B':
+				adv.at = 'B';
+				return adv;
 			case 'E':
 				adv.at = 'B';
 				return adv;
 			case 'F':
-				adv.at = 'C';
-				adv.pedra = '0';
+				adv.at = 'B';
+				adv.pedra = 0;
 				return adv;
 			case 'D':
 				adv.at = 'D';
+				adv.dragon = 0;
 				return adv;
 			case 'X':
 				adv.at = 'X';
@@ -39,8 +43,8 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 				return adv;
 			case 'L':
 				adv.at = 'L';
-				return adv;
-				adv.lgrind++;			
+				adv.lgrind++;
+				return adv;			
 			}
 		}
 	return adv;

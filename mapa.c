@@ -4,7 +4,7 @@
 int mapa(struct personagem adv) {
 	sala1("Final");
 	corredor();
-	entrada();
+	entrada(adv);
 	hall(adv);
 	return 0;
 }

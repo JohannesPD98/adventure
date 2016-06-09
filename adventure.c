@@ -6,6 +6,8 @@
 int main(void)	{
 	adv.classe = '0';
 	adv.at = 'A';
+	adv.pedra = 1;
+	adv.dragon = 1;
 	adv.lgrind = 0;
 	adv.rgrind = 0;
 	adv.gold = 0;

@@ -3,6 +3,6 @@
 #define SALAS
 void sala1(char sala[5]);
 void corredor(void);
-void entrada(void);
+void entrada(struct personagem adv);
 void hall(struct personagem adv);
 #endif

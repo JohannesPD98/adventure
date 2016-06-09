@@ -13,16 +13,15 @@ struct personagem hall1(struct personagem adv) {
 
 struct personagem hall2(struct personagem adv) {
 	int comandos = 6;
-	char msg[] = {"Na entrada da caverna, você é cumprimentado por um mercador, que oferece\nequipamentos para sua aventura. Ao explorar, você encontra três saídas,\numa de cada lado e uma a frente, que está barrada por uma rocha do seu tamanho.\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(F)Tentar Mover a pedra\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
-	char cmds[] = { 'X', 'M', 'F', 'R', 'L', 'S', '\0'};
-	adv = sel(adv, msg, cmds, comandos);
-	return adv;
-}
-
-struct personagem hall3(struct personagem adv) {
-	int comandos = 6;
-	char msg1[] = {"Para conseguir acessar o resto da caverna, você empurra a pedra e a tira do seu caminho.\nA sala com a marcação de PERIGO agora está aberta. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(D)Entrar na sala perigosa\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
-	char msg2[] = {"Para conseguir acessar o resto da caverna, você levita a pedra e a tira do seu caminho.\nA sala com a marcação de PERIGO agora está aberta. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(D)Entrar na sala perigosa\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
+	if (adv.pedra == 1) {
+		char msg[] = {"Na entrada da caverna, você é cumprimentado por um mercador, que oferece\nequipamentos para sua aventura. Ao explorar, você encontra três saídas,\numa de cada lado e uma a frente, que está barrada por uma rocha do seu tamanho.\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(F)Tentar Mover a pedra\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
+		char cmds[] = { 'X', 'M', 'F', 'R', 'L', 'S', '\0'};
+		adv = sel(adv, msg, cmds, comandos);
+		return adv;	
+	}
+	else {
+		char msg1[] = {"Para conseguir acessar o resto da caverna, você empurra a pedra e a tira do seu caminho.\nA sala com a marcação de PERIGO agora está aberta. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(D)Entrar na sala perigosa\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
+		char msg2[] = {"Para conseguir acessar o resto da caverna, você levita a pedra e a tira do seu caminho.\nA sala com a marcação de PERIGO agora está aberta. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(D)Entrar na sala perigosa\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
 	char cmds[] = { 'X', 'M', 'D', 'R', 'L', 'S', '\0'};
 	if (adv.classe == '1') {
 		adv = sel(adv, msg1, cmds, comandos);
@@ -31,6 +30,7 @@ struct personagem hall3(struct personagem adv) {
 			adv = sel(adv, msg2, cmds, comandos);
 		}
 	return adv;
+	}
 }
 
 struct personagem hall4(struct personagem adv) {
@@ -46,15 +46,7 @@ struct personagem hall4(struct personagem adv) {
 		}
 	return adv;
 }
-/*char hall4(char at, char classe) {
-	int comandos = 6;
-	char mago[] = {"você levita a pedra e a tira do seu caminho"};
-	char Lutador[] = {"você empurra a pedra e a tira do seu caminho"};
-	char msg[] = {"Para conseguir acessar o resto da caverna, %s\n A sala com a marcação de PERIGO agora está aberta. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(F)Entrar na sala perigosa\n(R)Ir para direita\n(L)Ir para Esquerda\n(S)Falar com o mercador\n>"};
-	char cmds[] = { 'X', 'M', 'F', 'R', 'L', 'S', '\0'};
-	at = sel(at, msg, cmds, comandos);
-	return at;
-}*/
+
 struct personagem merc(struct personagem adv) {
 	int comandos = 3;
 	char msg[] = {"O mercador não tem nada. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(B)Voltar\n>"};
@@ -65,17 +57,32 @@ struct personagem merc(struct personagem adv) {
 
 struct personagem rooml(struct personagem adv) {
 	int comandos = 4;
-	char msg[] = {"Você mata um monstro na sala, vende seu loot para o mercador e ganha ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(L)Explorar mais\n(B)Voltar pela mesma saída\n>"};
-	char cmds[] = { 'X', 'M', 'B', 'L', '\0'};
-	adv = sel(adv, msg, cmds, comandos);
-	return adv;
+	if (adv.lgrind < 4) {
+		char msg[] = {"Você mata um monstro na sala, vende seu loot para o mercador e ganha ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(L)Explorar mais\n(B)Voltar pela mesma saída\n>"};
+		char cmds[] = { 'X', 'M', 'B', 'L', '\0'};
+		adv = sel(adv, msg, cmds, comandos);
+		return adv;
+	}
+	else {
+		char msg[] = {"Você explorou todo o espaço, e não encontrou mais nenhum monstro\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(B)Voltar para o espaço inicial\n>"};
+		char cmds[] = { 'X', 'M', 'B', '\0'};
+		adv = sel(adv, msg, cmds, comandos);
+		return adv;
+	}
 }
 
 struct personagem roomr(struct personagem adv) {
 	int comandos = 4;
-	char msg[] = {"Você mata um monstro na sala, vende seu loot para o mercador e ganha ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(L)Explorar mais\n(B)Voltar pela mesma saída\n>"};
-	char cmds[] = { 'X', 'M', 'L', 'B', '\0'};
-	adv = sel(adv, msg, cmds, comandos);
-	return adv;
+	if (adv.rgrind < 4) {
+		char msg[] = {"Você mata um monstro na sala, vende seu loot para o mercador e ganha ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(R)Explorar mais\n(B)Voltar pela mesma saída\n>"};
+		char cmds[] = { 'X', 'M', 'B', 'R', '\0'};
+		adv = sel(adv, msg, cmds, comandos);
+		return adv;
+	}
+	else {
+		char msg[] = {"Você explorou todo o espaço, e não encontrou mais nenhum monstro\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(B)Voltar para o espaço inicial\n>"};
+		char cmds[] = { 'X', 'M', 'B', '\0'};
+		adv = sel(adv, msg, cmds, comandos);
+		return adv;
+	}
 }
-
