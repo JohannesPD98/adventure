@@ -2,6 +2,7 @@
 #define _ADVENTURE
 struct personagem {
 	char classe;
+	char icon;
 	char at;
 	int pedra;
 	int dragon;

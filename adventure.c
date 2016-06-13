@@ -25,6 +25,8 @@ int main(void)	{
 			}
 				else printf("Digite 1 ou 2\n");
 	}
+	printf("Escolha um dígito para ser seu ícone: ");
+	scanf(" %c", &adv.icon);
 	mapa(adv);
 	while (adv.at != 'X') {
 		adv = nav(adv);
