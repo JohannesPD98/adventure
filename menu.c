@@ -14,9 +14,15 @@ struct personagem nav(struct personagem adv) {
 				case 'D':
 					adv = hall4(adv);
 					break;
-				/*case 'E':
-					adv = hall5(adv);
-					break;*/
+				case 'E':
+					adv = corridor(adv);
+					break;
+				case 'F':
+					adv = final(adv);
+					break;
+				case 'C':
+					adv = bosses(adv);
+					break;
 				case 'L':
 					adv = rooml(adv);
 					break;

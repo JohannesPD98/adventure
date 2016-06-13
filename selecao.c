@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "mapa.h"
+#include "batalha.h"
 #include "adventure.h"
 struct personagem sel(struct personagem adv, char msg[], char cmds[], int comandos) {
 	char input;
@@ -20,6 +21,15 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 			case 'B':
 				adv.at = 'B';
 				return adv;
+			case 'D':
+				if (adv.dragon == 0) {
+					adv.at = 'D';
+					adv.dragon = 1;
+				}
+				else {
+					adv.at = 'E';
+				}
+				return adv;
 			case 'E':
 				adv.at = 'B';
 				return adv;
@@ -27,13 +37,21 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 				adv.at = 'B';
 				adv.pedra = 1;
 				return adv;
-			case 'D':
-				adv.at = 'D';
-				adv.dragon = 1;
+			case 'I':
+				adv.at = 'E';
 				return adv;
-			case 'X':
-				adv.at = 'X';
-				return adv;
+			case 'O':
+				if (adv.key == 0) {
+					adv.keytry = 1;
+					return adv;
+				}
+				else {
+					adv.at = 'F';
+					return adv;
+				}
+			case 'P':
+				adv.at = 'E';
+				return adv;				
 			case 'M':
 				mapa(adv);
 				return adv;
@@ -44,7 +62,18 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 			case 'L':
 				adv.at = 'L';
 				adv.lgrind++;
-				return adv;			
+				return adv;
+			case 'K':
+				adv.at = 'C';
+				return adv;
+			case 'A':
+				lutabosses(adv);
+				adv.at = 'E';
+				adv.boss++;
+				return adv;
+			case 'X':
+				adv.at = 'X';
+				return adv;
 			}
 		}
 	return adv;
