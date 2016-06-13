@@ -25,11 +25,11 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 				return adv;
 			case 'F':
 				adv.at = 'B';
-				adv.pedra = 0;
+				adv.pedra = 1;
 				return adv;
 			case 'D':
 				adv.at = 'D';
-				adv.dragon = 0;
+				adv.dragon = 1;
 				return adv;
 			case 'X':
 				adv.at = 'X';

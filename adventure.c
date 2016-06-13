@@ -6,11 +6,14 @@
 int main(void)	{
 	adv.classe = '0';
 	adv.at = 'A';
-	adv.pedra = 1;
-	adv.dragon = 1;
+	adv.pedra = 0;
+	adv.dragon = 0;
 	adv.lgrind = 0;
 	adv.rgrind = 0;
 	adv.gold = 0;
+	adv.hall2 = 0;
+	adv.hall4 = 0;
+	
 	printf("Escolha uma classe\n(1)Lutador\n(2) Mago\n");
 	while (adv.classe != '1' && adv.classe != '2') {
 		scanf(" %c", &adv.classe);
