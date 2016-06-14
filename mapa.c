@@ -3,7 +3,7 @@
 #include "adventure.h"
 int mapa(struct personagem adv) {
 	sala1("Final");
-	corredor();
+	corredor(adv);
 	entrada(adv);
 	hall(adv);
 	return 0;
