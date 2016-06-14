@@ -126,7 +126,21 @@ struct personagem merc(struct personagem adv) {
 	adv = sel(adv, msg, cmds, comandos);
 	return adv;
 }
+struct personagem merceq(struct personagem adv) {
+	int comandos = 6;
+	char msg[] = {"(1)Espada\n(2)Varinha\n(3)Armadura de couro\n(4)Túnica\n(S)Sair\n>"};
+	char cmds[] = { '1', '2', '3', '4', 'S', '\0'};
+	adv = sel(adv, msg, cmds, comandos);
+	return adv;
+}
 
+struct personagem merccon(struct personagem adv) {
+	int comandos 3;
+	char msg[] = {"(5)Poção de força\n(6)Poção de Inteligência\n(7)Poção de Vitalidade\n(S)Sair\n>"};
+	char cmds[] = { '5', '6', '7', 'S', '\0'};
+	adv = sel(adv, msg, cmds, comandos);
+	return adv;
+}
 struct personagem rooml(struct personagem adv) {
 	int comandos = 4;
 	if (adv.lgrind < 5) {
