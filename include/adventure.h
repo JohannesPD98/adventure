@@ -13,7 +13,7 @@ struct personagem {
     int rgrind;
     int gold;
     int hall2, hall2r, hall4;
-    int keytry, boss, boss1, boss2, boss3;
+    int key, keytry, boss, boss1, boss2, boss3;
     char inventario[5];
 } adv;
 
