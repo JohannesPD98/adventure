@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-#include <stdlib.h>
-#include <time.h>
+#include "batalha.h"
 #include "selecao.h"
 #include "adventure.h"
 
@@ -53,7 +52,7 @@ struct personagem hall4(struct personagem adv) {
 	int comandos = 5;
 	char cmds[] = { 'X', 'M', 'I', 'F', 'S', '\0'};
 	if (adv.classe == 1) {
-		char msg1[] = {"Ao entrar na sala perigosa, você encontra um dragão, do tamanho de uma mesa de jantar\nCom muito esforço, você consegue matá-lo. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(I)Seguir em frente\n(F)Voltar para a entrada\n(S)Falar com o mercador\n>"};
+		char msg1[] = {"Ao entrar na sala perigosa, você encontra um dragão, do tamanho de uma mesa de jantar\nCom muito esforço, você passa despercebido. O que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(I)Seguir em frente\n(F)Voltar para a entrada\n(S)Falar com o mercador\n>"};
 		adv = sel(adv, msg1, cmds, comandos);
 	}
 	else {
@@ -85,38 +84,40 @@ struct personagem final(struct personagem adv) {
 	return adv;
 }
 
-
-
-
+struct personagem bosses(struct personagem adv) {
+	adv.boss1 = 0;
+	adv.boss2 = 1;
+	adv.boss3 = 2;
+	int comandos = 4;
+	char cmds[] = { 'X', 'M', 'A', 'F', '\0'};
+	char msg1[] = {"Ao entrar na sala, você encontra um Mago! Ele provavelmente carrega algo util\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(A)Atacar o Mago\n(F)Voltar para a entrada\n>"};
+	char msg2[] = {"Ao entrar na sala, você encontra um Troll! Ele provavelmente carrega algo util\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(A)Atacar o Troll\n(F)Voltar para a entrada\n>"};
+	char msg3[] = {"Ao entrar na sala, você encontra um Ogro! Ele provavelmente carrega algo util\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(A)Atacar o Ogro\n(F)Voltar para a entrada\n>"};
+	if (adv.boss == 0) {
+		adv = sel(adv, msg1, cmds, comandos);
+	}
+	else if (adv.boss == 1) {
+		adv = sel(adv, msg2, cmds, comandos);
+		}
+	else if (adv.boss == 2) {
+		adv = sel(adv, msg3, cmds, comandos);
+	}
+	return adv;
+}
 
 
 
 
 struct personagem grind(struct personagem adv) {
-
-
-
-
-}
-
-struct personagem bosses(struct personagem adv) {
-	srand(time(NULL));
-	int boss = rand() % 3;
-	int comandos = 5;
-	char cmds[] = { 'X', 'M', 'F', 'A', 'F', '\0'};
-	char msg1[] = {"Ao entrar na sala, você encontra um Mago! Ele provavelmente carrega algo util\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(A)Atacar o Mago\n(F)Voltar para a entrada\n>"};
-	char msg2[] = {"Ao entrar na sala, você encontra um Troll! Ele provavelmente carrega algo util\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(A)Atacar o Troll\n(F)Voltar para a entrada\n>"};
-	char msg3[] = {"Ao entrar na sala, você encontra um Ogro! Ele provavelmente carrega algo util\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(A)Atacar o Ogro\n(F)Voltar para a entrada\n>"};
-	if (boss == 0) {
-		adv = sel(adv, msg1, cmds, comandos);
-	}
-	else if (boss == 1) {
-		adv = sel(adv, msg2, cmds, comandos);
+	int comandos = 4;
+		adv = lutagrind(adv);
+		if (adv.at == 'X') {
+			return adv;
 		}
-	else {
-		adv = sel(adv, msg3, cmds, comandos);
-	}
-	return adv;
+		char msg[] = {"Você matou um monstro na sala, vendeu seu loot para o mercador e ganhou ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(G)Explorar mais\n(B)Voltar pela mesma saída\n>"};
+		char cmds[] = { 'X', 'M', 'B', 'G', '\0'};
+		adv = sel(adv, msg, cmds, comandos);
+		return adv;
 }
 
 struct personagem merc(struct personagem adv) {
@@ -127,10 +128,30 @@ struct personagem merc(struct personagem adv) {
 	return adv;
 }
 
+struct personagem merceq(struct personagem adv) {
+	int comandos = 6;
+	char msg[] = {"(1)Espada\n(2)Varinha\n(3)Armadura de couro\n(4)Túnica\n(S)Sair\n>"};
+	char cmds[] = { '1', '2', '3', '4', 'S', '\0'};
+	adv = sel(adv, msg, cmds, comandos);
+	return adv;
+}
+
+struct personagem merccon(struct personagem adv) {
+	int comandos = 3;
+	char msg[] = {"(5)Poção de força\n(6)Poção de Inteligência\n(7)Poção de Vitalidade\n(S)Sair\n>"};
+	char cmds[] = { '5', '6', '7', 'S', '\0'};
+	adv = sel(adv, msg, cmds, comandos);
+	return adv;
+}
+
 struct personagem rooml(struct personagem adv) {
 	int comandos = 4;
 	if (adv.lgrind < 5) {
-		char msg[] = {"Você mata um monstro na sala, vende seu loot para o mercador e ganha ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(L)Explorar mais\n(B)Voltar pela mesma saída\n>"};
+		adv = lutagrind(adv);
+		if (adv.at == 'X') {
+			return adv;
+		}
+		char msg[] = {"Você matou um monstro na sala, vendeu seu loot para o mercador e ganhou ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(L)Explorar mais\n(B)Voltar pela mesma saída\n>"};
 		char cmds[] = { 'X', 'M', 'B', 'L', '\0'};
 		adv = sel(adv, msg, cmds, comandos);
 		return adv;
@@ -146,7 +167,11 @@ struct personagem rooml(struct personagem adv) {
 struct personagem roomr(struct personagem adv) {
 	int comandos = 4;
 	if (adv.rgrind < 5) {
-		char msg[] = {"Você mata um monstro na sala, vende seu loot para o mercador e ganha ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(R)Explorar mais\n(B)Voltar pela mesma saída\n>"};
+		adv = lutagrind(adv);
+		if (adv.at == 'X') {
+			return adv;
+		}
+		char msg[] = {"Você matou um monstro na sala, vendeu seu loot para o mercador e ganhou ouro.\nEsse espaço é muito grande, e você não o explorou por completo ainda\nO que você faz?\n(X)Sair do Jogo\n(M)Mostrar Mapa\n(R)Explorar mais\n(B)Voltar pela mesma saída\n>"};
 		char cmds[] = { 'X', 'M', 'B', 'R', '\0'};
 		adv = sel(adv, msg, cmds, comandos);
 		return adv;

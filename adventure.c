@@ -8,7 +8,7 @@ int main(void)	{
 	adv.at = 'A';
 	adv.lvl = 1;
 	adv.hp = 100;
-	adv.atk = 10;
+	adv.atk = 30;
 	adv.pedra = 0;
 	adv.dragon = 0;
 	adv.lgrind = 0;

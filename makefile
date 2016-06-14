@@ -1,17 +1,11 @@
 CFLAGS = -Wall -c -I include
-OBJECTS = salas.o mapa.o movimentos.o menu.o selecao.o batalha.o
+OBJECTS = salas.o mapa.o movimentos.o menu.o selecao.o batalha.o items.o
 
 adventure: $(OBJECTS)
 	gcc  adventure.c $(OBJECTS)
 
-inventory.o: inventory.c include/item.h
-	gcc $(CFLAGS) inventory.c
-
-items.o: items.c include/item.h include/item_actions.h
+items.o: items.c item.h
 	gcc $(CFLAGS) items.c
-
-item_actions.o: item_actions.c include/item.h
-	gcc $(CFLAGS) item_actions.c
 
 salas.o: salas.c salas.h
 	gcc $(CFLAGS) salas.c
@@ -30,6 +24,7 @@ selecao.o: selecao.c selecao.h
 
 batalha.o: batalha.c batalha.h
 	gcc $(CFLAGS) batalha.c
+
 clean:
 	rm *.o
 	rm a.out

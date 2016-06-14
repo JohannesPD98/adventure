@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "movimentos.h"
+#include "batalha.h"
 #include "adventure.h"
 
 struct personagem nav(struct personagem adv) {

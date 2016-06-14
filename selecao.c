@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "mapa.h"
 #include "batalha.h"
+#include "item.h"
 #include "adventure.h"
 struct personagem sel(struct personagem adv, char msg[], char cmds[], int comandos) {
 	char input;
@@ -71,8 +72,32 @@ struct personagem sel(struct personagem adv, char msg[], char cmds[], int comand
 				adv.at = 'E';
 				adv.boss++;
 				return adv;
+			case 'U':
+				adv = lutafinal(adv);
+				return adv;
 			case 'X':
 				adv.at = 'X';
+				return adv;
+			case '1':
+				adv = buy(adv, input);
+				return adv;
+			case '2':
+				adv = buy(adv, input);
+				return adv;
+			case '3':
+				adv = buy(adv, input);
+				return adv;
+			case '4':
+				adv = buy(adv, input);
+				return adv;
+			case '5':
+				adv = buy(adv, input);
+				return adv;
+			case '6':
+				adv = buy(adv, input);
+				return adv;
+			case '7':
+				adv = buy(adv, input);
 				return adv;
 			}
 		}
